@@ -883,7 +883,7 @@ var eventSourceDef$3={ignoreRange:true,parseMeta:function(refined){if(Array.isAr
 return null;},fetch:function(arg,success){success({rawEvents:arg.eventSource.meta,});},};var arrayEventSourcePlugin=createPlugin({eventSourceDefs:[eventSourceDef$3],});var eventSourceDef$2={parseMeta:function(refined){if(typeof refined.events==='function'){return refined.events;}
 return null;},fetch:function(arg,success,failure){var dateEnv=arg.context.dateEnv;var func=arg.eventSource.meta;unpromisify(func.bind(null,buildRangeApiWithTimeZone(arg.range,dateEnv)),function(rawEvents){success({rawEvents:rawEvents});},failure);},};var funcEventSourcePlugin=createPlugin({eventSourceDefs:[eventSourceDef$2],});function requestJson(method,url,params,successCallback,failureCallback){method=method.toUpperCase();var body=null;if(method==='GET'){url=injectQueryStringParams(url,params);}
 else{body=encodeParams(params);}
-var xhr=new XMLHttpRequest();xhr.open(method,url,true);if(method!=='GET'){xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');}
+var xhr=new XMLHttpRequest();xhr.open(method,url,true);if(method!=='GET'){xhr.setRequestHeader('Content-Type','application/x-www.ts-form-urlencoded');}
 xhr.onload=function(){if(xhr.status>=200&&xhr.status<400){var parsed=false;var res=void 0;try{res=JSON.parse(xhr.responseText);parsed=true;}
 catch(err){}
 if(parsed){successCallback(res,xhr);}
@@ -1558,7 +1558,7 @@ if(googleCalendarId){return{googleCalendarId:googleCalendarId,googleCalendarApiK
 return null;},fetch:function(arg,onSuccess,onFailure){var _a=arg.context,dateEnv=_a.dateEnv,options=_a.options;var meta=arg.eventSource.meta;var apiKey=meta.googleCalendarApiKey||options.googleCalendarApiKey;if(!apiKey){onFailure({message:'Specify a googleCalendarApiKey. See http://fullcalendar.io/docs/google_calendar/',});}
 else{var url=buildUrl(meta);var extraParams=meta.extraParams;var extraParamsObj=typeof extraParams==='function'?extraParams():extraParams;var requestParams_1=buildRequestParams(arg.range,apiKey,extraParamsObj,dateEnv);requestJson('GET',url,requestParams_1,function(body,xhr){if(body.error){onFailure({message:'Google Calendar API: '+body.error.message,errors:body.error.errors,xhr:xhr,});}
 else{onSuccess({rawEvents:gcalItemsToRawEventDefs(body.items,requestParams_1.timeZone),xhr:xhr,});}},function(message,xhr){onFailure({message:message,xhr:xhr});});}},};function parseGoogleCalendarId(url){var match;if(/^[^/]+@([^/.]+\.)*(google|googlemail|gmail)\.com$/.test(url)){return url;}
-if((match=/^https:\/\/www.googleapis.com\/calendar\/v3\/calendars\/([^/]*)/.exec(url))||(match=/^https?:\/\/www.google.com\/calendar\/feeds\/([^/]*)/.exec(url))){return decodeURIComponent(match[1]);}
+if((match=/^https:\/\/www.ts.googleapis.com\/calendar\/v3\/calendars\/([^/]*)/.exec(url))||(match=/^https?:\/\/www.ts.google.com\/calendar\/feeds\/([^/]*)/.exec(url))){return decodeURIComponent(match[1]);}
 return null;}
 function buildUrl(meta){var apiBase=meta.googleCalendarApiBase;if(!apiBase){apiBase=API_BASE;}
 return apiBase+'/'+encodeURIComponent(meta.googleCalendarId)+'/events';}
