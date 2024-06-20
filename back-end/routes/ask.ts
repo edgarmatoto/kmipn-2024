@@ -6,6 +6,7 @@ import {
     GoogleGenerativeAI
 } from "@google/generative-ai";
 import {configDotenv} from "dotenv";
+import {sendAnswer} from "../telegram/bot";
 
 configDotenv()
 
@@ -24,9 +25,11 @@ async function run(question: string): Promise<any> {
 
 /* GET users listing. */
 router.get('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
-    const answer = await run("berikan nasehat singkat untuk orang dengan gangguan mental");
+    // const answer = await run("berikan nasehat singkat untuk orang dengan gangguan mental");
 
-    res.send(answer);
+    await sendAnswer("@edgarmatt", "answer");
+
+    res.send("Baik, jawaban anda telah disimpan. Kami akan menghubungi anda lebih lanjut melalui telegram yang sudah terdaftar.");
 });
 
 export default router;

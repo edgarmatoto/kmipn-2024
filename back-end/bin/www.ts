@@ -1,7 +1,6 @@
 import app from "../app";
 import debug from "debug";
 import * as http from "http";
-import bot from "../telegram/bot";
 import {configDotenv} from "dotenv";
 
 configDotenv()
@@ -87,6 +86,3 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
 }
-
-// Start the telegram bot.
-bot.start();
