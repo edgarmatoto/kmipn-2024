@@ -1,6 +1,7 @@
 import app from "../app";
 import debug from "debug";
 import * as http from "http";
+import whatsapp from "../whatsapp/whatsapp";
 import {configDotenv} from "dotenv";
 
 configDotenv()
@@ -86,3 +87,6 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
 }
+
+// Run whatsapp bot
+whatsapp.initialize();
