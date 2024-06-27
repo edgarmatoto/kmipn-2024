@@ -82,4 +82,21 @@ router.put('/', function(req: Request, res: Response, next: NextFunction) {
     }
 });
 
+// DELETE request to delete a test by ID
+router.delete('/', function(req, res, next) {
+    const { id } = req.body;
+
+    const sql: string = 'DELETE FROM `test` WHERE `id` = ?';
+    connection.execute(sql, [id], (err: QueryError | null, result: QueryResult, fields: FieldPacket[]) => {
+        if (err) {
+            console.error('Error deleting test:', err);
+            res.status(500).json({ message: 'Failed to delete test' });
+            return;
+        }
+
+        // Success response
+        res.status(200).json({ message: 'Test successfully deleted' });
+    });
+});
+
 export default router;

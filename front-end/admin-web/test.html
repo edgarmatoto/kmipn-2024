@@ -428,7 +428,7 @@ Nora Silvester
 
         // Store the ID in a hidden input or a global variable if needed
         document.getElementById('editDataModal').dataset.id = id;
-    };
+    }
 
     function addData(event) {
         event.preventDefault();
@@ -501,12 +501,33 @@ Nora Silvester
             .catch(error => {
                 console.error('Error:', error);
             });
-    };
+    }
 
     function deleteData(id) {
-        // Implement the delete functionality here
-        console.log('Delete item with id:', id);
-    };
+        const data = {
+            id
+        };
+
+        // Kirim DELETE request menggunakan fetch API
+        fetch(`http://localhost:3000/api/test`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+
+                // Reload the page
+                window.location.reload();
+                // swal("Success!", "Data added successfully!", "success");
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 </script>
 <script src="plugins/jquery/jquery.min.js"></script>
 
