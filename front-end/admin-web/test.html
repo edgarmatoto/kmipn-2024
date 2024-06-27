@@ -482,8 +482,25 @@ Nora Silvester
             optionD: document.getElementById('editOptionD').value
         };
 
-        // Add your save logic here (e.g., send a PUT request to the server)
-        console.log('Save data:', data.id, data.question, data.optionA, data.optionB, data.optionC, data.optionD );
+        // Kirim PUT request menggunakan fetch API
+        fetch('http://localhost:3000/api/test', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+
+                // Reload the page
+                window.location.reload();
+                // swal("Success!", "Data added successfully!", "success");
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     };
 
     function deleteData(id) {

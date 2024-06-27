@@ -4,6 +4,7 @@ import {FieldPacket, QueryError, QueryResult} from "mysql2";
 
 const router: Router = express.Router();
 
+// get test data from db
 function getTestData(): Promise<QueryResult> {
     const sql: string = 'SELECT * FROM `test`';
 
@@ -46,6 +47,34 @@ router.post('/', function(req: Request, res: Response, next: NextFunction) {
         res.status(201).json({
             message: "Test successfully created"
         })
+    } else {
+        res.status(400).json({
+            message: 'Missing required fields in request body'
+        });
+    }
+});
+
+// PUT /api/test
+router.put('/', function(req: Request, res: Response, next: NextFunction) {
+    const { id, question, optionA, optionB, optionC, optionD } = req.body;
+
+    if (id && question && optionA && optionB && optionC && optionD) {
+        const sql: string = 'UPDATE `test` SET `question`=?, `option_a`=?, `option_b`=?, `option_c`=?, `option_d`=? WHERE `id`=?';
+        const values: Array<string | number> = [question, optionA, optionB, optionC, optionD, id];
+
+        connection.execute(sql, values, (err, result, fields) => {
+            if (err instanceof Error) {
+                console.log(err);
+                res.status(500).json({
+                    message: "Failed to update test"
+                });
+                return;
+            }
+
+            res.status(200).json({
+                message: "Test successfully updated"
+            });
+        });
     } else {
         res.status(400).json({
             message: 'Missing required fields in request body'
