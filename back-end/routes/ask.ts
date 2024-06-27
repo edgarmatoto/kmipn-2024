@@ -5,6 +5,7 @@ import {
     GenerativeModel,
     GoogleGenerativeAI
 } from "@google/generative-ai";
+import { GoogleAIFileManager } from "@google/generative-ai/files";
 import {configDotenv} from "dotenv";
 import {sendMessage} from "../whatsapp/whatsapp";
 
@@ -12,12 +13,25 @@ configDotenv()
 
 const router: Router = express.Router();
 
-// Access your API key as an environment variable (see "Set up your API key" above)
-const genAI: GoogleGenerativeAI = new GoogleGenerativeAI(process.env.GEMINI_KEY || "");
-const model: GenerativeModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+async function askGemini(testScore: string | number): Promise<any> {
+    const fileManager = new GoogleAIFileManager(process.env.GEMINI_KEY || "");
+    const uploadResult = await fileManager.uploadFile("soal.txt", {
+        mimeType: "text/plain",
+        displayName: "Soal Tes Kesehatan Mental",
+    });
 
-async function run(question: string): Promise<any> {
-    const result: GenerateContentResult = await model.generateContent(question);
+    const genAI: GoogleGenerativeAI = new GoogleGenerativeAI(process.env.GEMINI_KEY || "");
+    const model: GenerativeModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+    const result: GenerateContentResult = await model.generateContent([
+        {
+            fileData: {
+                mimeType: uploadResult.file.mimeType,
+                fileUri: uploadResult.file.uri
+            }
+        },
+        { text: `Kamu adalah seorang yang ahli dalam kesehatan mental. Peserta tes mendapatkan nilai akhir ${testScore}, berikan nasehat dan hal-hal lain yang berguna untuk menolong peserta.` },
+    ]);
     const response: EnhancedGenerateContentResponse = await result.response;
 
     return response.text()
@@ -25,11 +39,15 @@ async function run(question: string): Promise<any> {
 
 /* GET users listing. */
 router.get('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
-    // const answer = await run("berikan nasehat singkat untuk orang dengan gangguan mental");
+    const { testScore } = req.body
 
-    await sendMessage("6282191141646", "answer");
+    // const answer = await askGemini(testScore);
 
-    res.send("Baik, jawaban anda telah disimpan. Kami akan menghubungi anda lebih lanjut melalui whatsapp yang sudah terdaftar.");
+    // await sendMessage("6282191141646", answer);
+
+    res.json({
+        message: "Baik, jawaban anda telah disimpan. Kami akan menghubungi anda lebih lanjut melalui whatsapp yang sudah terdaftar."
+    });
 });
 
 export default router;

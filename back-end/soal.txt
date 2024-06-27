@@ -1,0 +1,63 @@
+Skala Jawaban:
+a) Tidak pernah (nilai: 0)
+b) Jarang (nilai: 1)
+c) Kadang-kadang (nilai: 2)
+d) Sering (nilai: 3)
+
+Pertanyaan:
+1.	Apakah Anda sering merasa gelisah atau cemas?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+2.	Apakah Anda merasa kesulitan untuk tidur atau tidur tidak nyenyak?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+3.	Bagaimana perasaan Anda terhadap diri sendiri saat ini?
+a) Percaya diri (0)
+b) Normal (1)
+c) Merasa tidak berharga (2)
+d) Merasa tidak mampu atau gagal (3)
+4.	Apakah Anda sering merasa sedih atau murung?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+5.	Bagaimana energi Anda sehari-hari?
+a) Tinggi dan bertenaga (0)
+b) Normal, tidak terlalu tinggi atau rendah (1)
+c) Cukup rendah (2)
+d) Sangat rendah atau lelah sepanjang waktu (3)
+6.	Apakah Anda merasa tertekan atau stres dalam situasi tertentu?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+7.	Apakah Anda merasa kesulitan untuk berkonsentrasi atau memusatkan perhatian?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+8.	Apakah Anda sering merasa marah atau mudah tersinggung?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+9.	Apakah Anda merasa sulit untuk menikmati kegiatan atau hobi yang biasanya Anda nikmati?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+10.	Apakah Anda merasa sering kehilangan minat pada hal-hal yang biasanya menarik?
+a) Tidak pernah (0)
+b) Jarang (1)
+c) Kadang-kadang (2)
+d) Sering (3)
+
+Skor Penilaian:
+•	0-10: Sehat secara mental
+•	11-20: Sedikit tertekan atau stres, mungkin perlu perhatian lebih
+•	21-30: Cukup tertekan atau stres, disarankan untuk mencari bantuan
+•	31-40: Sangat tertekan atau stres, sangat disarankan untuk mencari bantuan profesional
