@@ -3,11 +3,14 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import cors from 'cors';
 
 import indexRouter from './routes/index';
 import askRouter from './routes/ask';
+import testRouter from './routes/test';
 
 var app: Express = express();
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/ask', askRouter);
+app.use('/api/test', testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -37,13 +37,13 @@ async function askGemini(testScore: string | number): Promise<any> {
     return response.text()
 }
 
-/* GET users listing. */
+/* GET /api/ask */
 router.get('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
     const { testScore } = req.body
 
-    // const answer = await askGemini(testScore);
+    const answer = await askGemini(testScore);
 
-    // await sendMessage("6282191141646", answer);
+    await sendMessage("6282191141646", answer);
 
     res.json({
         message: "Baik, jawaban anda telah disimpan. Kami akan menghubungi anda lebih lanjut melalui whatsapp yang sudah terdaftar."

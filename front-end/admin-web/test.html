@@ -253,43 +253,23 @@ Nora Silvester
               <thead>
                   <tr>
                       <th>Soal</th>
-                      <th>Opsi Nilai 0</th>
-                      <th>Opsi Nilai 1</th>
-                      <th>Opsi Nilai 2</th>
-                      <th>Opsi Nilai 3</th>
+                      <th>Opsi A</th>
+                      <th>Opsi B</th>
+                      <th>Opsi C</th>
+                      <th>Opsi D</th>
                       <th>Aksi</th>
                   </tr>
               </thead>
-              <tbody>
-                  <tr>
-                      <td>Contoh Soal</td>
-                      <td>Opsi 0</td>
-                      <td>Opsi 1</td>
-                      <td>Opsi 2</td>
-                      <td>Opsi 3</td>
-                      <td>
-                          <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editDataModal">Edit</button>
-                          <button class="btn btn-danger btn-sm" onclick="deleteData()">Delete</button>
-                      </td>
-                  </tr>
+              <tbody id="data-table-body">
+              <!-- Data will be inserted here -->
               </tbody>
-              <tfoot>
-                  <tr>
-                      <th>Soal</th>
-                      <th>Opsi Nilai 0</th>
-                      <th>Opsi Nilai 1</th>
-                      <th>Opsi Nilai 2</th>
-                      <th>Opsi Nilai 3</th>
-                      <th>Aksi</th>
-                  </tr>
-              </tfoot>
           </table>
       </div>
   </div>
 </div>
 
 <!-- Add Data Modal -->
-<div class="modal fade" id="addDataModal" tabindex="-1" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
+<div class="modal fade" id="addDataModal" tabindex="-B" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
@@ -299,28 +279,28 @@ Nora Silvester
               </button>
           </div>
           <div class="modal-body">
-              <form>
+              <form id="dataForm" onsubmit="addData(event)">
                   <div class="form-group">
-                      <label for="addQuestion">Soal:</label>
-                      <input type="text" class="form-control" id="addQuestion" placeholder="Masukkan soal" required>
+                      <label for="question">Soal:</label>
+                      <input type="text" class="form-control" id="question" name="question" placeholder="Masukkan soal" required>
                   </div>
                   <div class="form-group">
-                      <label for="addOption0">Opsi Nilai 0:</label>
-                      <input type="text" class="form-control" id="addOption0" placeholder="Masukkan opsi nilai 0" required>
+                      <label for="optionA">Opsi A:</label>
+                      <input type="text" class="form-control" id="optionA" name="optionA" placeholder="Masukkan opsi A" required>
                   </div>
                   <div class="form-group">
-                      <label for="addOption1">Opsi Nilai 1:</label>
-                      <input type="text" class="form-control" id="addOption1" placeholder="Masukkan opsi nilai 1" required>
+                      <label for="optionB">Opsi B:</label>
+                      <input type="text" class="form-control" id="optionB" name="optionB" placeholder="Masukkan opsi B" required>
                   </div>
                   <div class="form-group">
-                      <label for="addOption2">Opsi Nilai 2:</label>
-                      <input type="text" class="form-control" id="addOption2" placeholder="Masukkan opsi nilai 2" required>
+                      <label for="optionC">Opsi C:</label>
+                      <input type="text" class="form-control" id="optionC" name="optionC" placeholder="Masukkan opsi C" required>
                   </div>
                   <div class="form-group">
-                      <label for="addOption3">Opsi Nilai 3:</label>
-                      <input type="text" class="form-control" id="addOption3" placeholder="Masukkan opsi nilai 3" required>
+                      <label for="optionD">Opsi D:</label>
+                      <input type="text" class="form-control" id="optionD" name="optionD" placeholder="Masukkan opsi D" required>
                   </div>
-                  <button type="submit" class="btn btn-primary" onclick="addData()">Simpan</button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
               </form>
           </div>
       </div>
@@ -344,102 +324,24 @@ Nora Silvester
                       <input type="text" class="form-control" id="editQuestion" placeholder="Masukkan soal" required>
                   </div>
                   <div class="form-group">
-                      <label for="editOption0">Opsi Nilai 0:</label>
-                      <input type="text" class="form-control" id="editOption0" placeholder="Masukkan opsi nilai 0" required>
+                      <label for="editOptionA">Opsi A:</label>
+                      <input type="text" class="form-control" id="editOptionA" placeholder="Masukkan opsi A" required>
                   </div>
                   <div class="form-group">
-                      <label for="editOption1">Opsi Nilai 1:</label>
-                      <input type="text" class="form-control" id="editOption1" placeholder="Masukkan opsi nilai 1" required>
+                      <label for="editOptionB">Opsi B:</label>
+                      <input type="text" class="form-control" id="editOptionB" placeholder="Masukkan opsi B" required>
                   </div>
                   <div class="form-group">
-                      <label for="editOption2">Opsi Nilai 2:</label>
-                      <input type="text" class="form-control" id="editOption2" placeholder="Masukkan opsi nilai 2" required>
+                      <label for="editOptionC">Opsi C:</label>
+                      <input type="text" class="form-control" id="editOptionC" placeholder="Masukkan opsi C" required>
                   </div>
                   <div class="form-group">
-                      <label for="editOption3">Opsi Nilai 3:</label>
-                      <input type="text" class="form-control" id="editOption3" placeholder="Masukkan opsi nilai 3" required>
+                      <label for="editOptionD">Opsi D:</label>
+                      <input type="text" class="form-control" id="editOptionD" placeholder="Masukkan opsi D" required>
                   </div>
-                  <button type="submit" class="btn btn-primary" onclick="editData()">Simpan</button>
+                  <button type="submit" class="btn btn-primary" onclick="saveEditData(event)">Simpan</button>
               </form>
           </div>
-      </div>
-  </div>
-</div>
-</div>
-
-<!-- Add Data Modal -->
-<div class="modal fade" id="addDataModal" tabindex="-1" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="addDataModalLabel">Tambah Data Baru</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body">
-          <form>
-              <div class="form-group">
-                  <label for="addQuestion">Soal:</label>
-                  <input type="text" class="form-control" id="addQuestion" placeholder="Masukkan soal" required>
-              </div>
-              <div class="form-group">
-                  <label for="addOption0">Opsi Nilai 0:</label>
-                  <input type="text" class="form-control" id="addOption0" placeholder="Masukkan opsi nilai 0" required>
-              </div>
-              <div class="form-group">
-                  <label for="addOption1">Opsi Nilai 1:</label>
-                  <input type="text" class="form-control" id="addOption1" placeholder="Masukkan opsi nilai 1" required>
-              </div>
-              <div class="form-group">
-                  <label for="addOption2">Opsi Nilai 2:</label>
-                  <input type="text" class="form-control" id="addOption2" placeholder="Masukkan opsi nilai 2" required>
-              </div>
-              <div class="form-group">
-                  <label for="addOption3">Opsi Nilai 3:</label>
-                  <input type="text" class="form-control" id="addOption3" placeholder="Masukkan opsi nilai 3" required>
-              </div>
-              <button type="submit" class="btn btn-primary" onclick="addData()">Simpan</button>
-          </form>
-      </div>
-  </div>
-</div>
-</div>
-
-<!-- Edit Data Modal -->
-<div class="modal fade" id="editDataModal" tabindex="-1" role="dialog" aria-labelledby="editDataModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="editDataModalLabel">Edit Data</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body">
-          <form>
-              <div class="form-group">
-                  <label for="editQuestion">Soal:</label>
-                  <input type="text" class="form-control" id="editQuestion" placeholder="Masukkan soal" required>
-              </div>
-              <div class="form-group">
-                  <label for="editOption0">Opsi Nilai 0:</label>
-                  <input type="text" class="form-control" id="editOption0" placeholder="Masukkan opsi nilai 0" required>
-              </div>
-              <div class="form-group">
-                  <label for="editOption1">Opsi Nilai 1:</label>
-                  <input type="text" class="form-control" id="editOption1" placeholder="Masukkan opsi nilai 1" required>
-              </div>
-              <div class="form-group">
-                  <label for="editOption2">Opsi Nilai 2:</label>
-                  <input type="text" class="form-control" id="editOption2" placeholder="Masukkan opsi nilai 2" required>
-              </div>
-              <div class="form-group">
-                  <label for="editOption3">Opsi Nilai 3:</label>
-                  <input type="text" class="form-control" id="editOption3" placeholder="Masukkan opsi nilai 3" required>
-              </div>
-              <button type="submit" class="btn btn-primary" onclick="editData()">Simpan</button>
-          </form>
       </div>
   </div>
 </div>
@@ -468,9 +370,127 @@ Nora Silvester
 
 </aside>
 
-</div>
+<!-- Get Test question from api -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchData();
+    });
 
+    function fetchData() {
+        fetch('http://localhost:3000/api/test')
+            .then(response => response.json())
+            .then(res => {
+                populateTable(res.data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
 
+    function populateTable(data) {
+        const tableBody = document.getElementById('data-table-body');
+        tableBody.innerHTML = '';
+
+        data.forEach(item => {
+            const rowElement = document.createElement('tr');
+
+            const questionElement = document.createElement('td');
+            questionElement.textContent = item.question;
+            rowElement.appendChild(questionElement);
+
+            for (let i = 0; i < 4; i++) {
+                const options = ['a', 'b', 'c', 'd']
+
+                const optionElement = document.createElement('td');
+                optionElement.textContent = item[`option_${options[i]}`];
+                rowElement.appendChild(optionElement);
+            }
+
+            const actionElement = document.createElement('td');
+            actionElement.innerHTML = `
+                <button
+                    class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editDataModal" onclick="populateEditModal(${item.id}, '${item.question}', '${item.option_a}', '${item.option_b}', '${item.option_c}', '${item.option_d}')">
+                Edit
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteData(${item.id})">Delete</button>
+            `;
+            rowElement.appendChild(actionElement);
+
+            tableBody.appendChild(rowElement);
+        });
+    }
+</script>
+<script>
+    function populateEditModal(id, question, optionA, optionB, optionC, optionD) {
+        document.getElementById('editQuestion').value = question;
+        document.getElementById('editOptionA').value = optionA;
+        document.getElementById('editOptionB').value = optionB;
+        document.getElementById('editOptionC').value = optionC;
+        document.getElementById('editOptionD').value = optionD;
+
+        // Store the ID in a hidden input or a global variable if needed
+        document.getElementById('editDataModal').dataset.id = id;
+    };
+
+    function addData(event) {
+        event.preventDefault();
+
+        // Ambil form element dari event
+        const form = event.target;
+
+        // Buat objek data untuk dikirim
+        const data = {
+            question: form.question.value,
+            optionA: form.optionA.value,
+            optionB: form.optionB.value,
+            optionC: form.optionC.value,
+            optionD: form.optionD.value
+        };
+
+        // Kirim POST request menggunakan fetch API
+        fetch('http://localhost:3000/api/test', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+
+                // Reload the page
+                window.location.reload();
+                // swal("Success!", "Data added successfully!", "success");
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function saveEditData(event) {
+        event.preventDefault();
+
+        // Ambil form element dari event
+        const form = event.target;
+
+        // Buat objek data untuk dikirim
+        const data = {
+            id: document.getElementById('editDataModal').dataset.id,
+            question: document.getElementById('editQuestion').value,
+            optionA: document.getElementById('editOptionA').value,
+            optionB: document.getElementById('editOptionB').value,
+            optionC: document.getElementById('editOptionC').value,
+            optionD: document.getElementById('editOptionD').value
+        };
+
+        // Add your save logic here (e.g., send a PUT request to the server)
+        console.log('Save data:', data.id, data.question, data.optionA, data.optionB, data.optionC, data.optionD );
+    };
+
+    function deleteData(id) {
+        // Implement the delete functionality here
+        console.log('Delete item with id:', id);
+    };
+</script>
 <script src="plugins/jquery/jquery.min.js"></script>
 
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -490,52 +510,22 @@ Nora Silvester
 
 <script src="dist/js/adminlte.min2167.js?v=3.2.0"></script>
 
-<script src="dist/js/demo.js"></script>
-
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
     });
-  });
-</script>
-<script>
-  function addData() {
-      event.preventDefault();
-      swal("Success!", "Data added successfully!", "success");
-  }
-
-  function editData() {
-      event.preventDefault();
-      swal("Success!", "Data updated successfully!", "success");
-  }
-
-  function deleteData() {
-      swal({
-          title: "Are you sure?",
-          text: "Once deleted, you will not be able to recover this data!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-      })
-      .then((willDelete) => {
-          if (willDelete) {
-              swal("Poof! Data has been deleted!", {
-                  icon: "success",
-              });
-          }
-      });
-  }
 </script>
 </body>
 
