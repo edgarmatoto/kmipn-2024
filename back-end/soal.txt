@@ -6,58 +6,159 @@ d) Sering (nilai: 3)
 
 Pertanyaan:
 1.	Apakah Anda sering merasa gelisah atau cemas?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 2.	Apakah Anda merasa kesulitan untuk tidur atau tidur tidak nyenyak?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 3.	Bagaimana perasaan Anda terhadap diri sendiri saat ini?
-a) Percaya diri (0)
-b) Normal (1)
-c) Merasa tidak berharga (2)
-d) Merasa tidak mampu atau gagal (3)
+a) Percaya diri
+b) Normal
+c) Merasa tidak berharga
+d) Merasa tidak mampu atau gagal
 4.	Apakah Anda sering merasa sedih atau murung?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 5.	Bagaimana energi Anda sehari-hari?
-a) Tinggi dan bertenaga (0)
-b) Normal, tidak terlalu tinggi atau rendah (1)
-c) Cukup rendah (2)
-d) Sangat rendah atau lelah sepanjang waktu (3)
+a) Tinggi dan bertenaga
+b) Normal, tidak terlalu tinggi atau rendah
+c) Cukup rendah
+d) Sangat rendah atau lelah sepanjang waktu
 6.	Apakah Anda merasa tertekan atau stres dalam situasi tertentu?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 7.	Apakah Anda merasa kesulitan untuk berkonsentrasi atau memusatkan perhatian?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 8.	Apakah Anda sering merasa marah atau mudah tersinggung?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 9.	Apakah Anda merasa sulit untuk menikmati kegiatan atau hobi yang biasanya Anda nikmati?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 10.	Apakah Anda merasa sering kehilangan minat pada hal-hal yang biasanya menarik?
-a) Tidak pernah (0)
-b) Jarang (1)
-c) Kadang-kadang (2)
-d) Sering (3)
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda sering merasa lelah atau kurang energi?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa kesulitan dalam mengambil keputusan?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering merasa tidak berdaya atau putus asa?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda mengalami perubahan nafsu makan atau berat badan yang signifikan?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sulit untuk bangun dari tempat tidur di pagi hari?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering (3
+Apakah Anda merasa sering ingin menangis tanpa alasan yang jelas?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering menghindari aktivitas sosial atau pertemuan dengan orang lain?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering cemas tentang masa depan?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sulit untuk menikmati makanan atau mengalami penurunan nafsu makan?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering kesepian atau terisolasi dari orang lain?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda sering merasa sakit kepala atau nyeri tubuh tanpa alasan medis yang jelas?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sulit untuk rileks atau merasa tegang sepanjang waktu?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering khawatir tentang hal-hal kecil atau sepele?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering takut akan sesuatu yang tidak jelas atau tidak diketahui?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sulit untuk bangkit dari kegagalan atau kekecewaan?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda sering merasa tidak mampu untuk menyelesaikan pekerjaan atau tugas sehari-hari?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering menghindari tanggung jawab atau kewajiban?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sulit untuk berpikir jernih atau fokus pada satu hal?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering cemas tentang kesehatan fisik Anda meskipun tidak ada alasan medis yang jelas?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
+Apakah Anda merasa sering mengalami mimpi buruk atau gangguan tidur lainnya?
+a) Tidak pernah
+b) Jarang
+c) Kadang-kadang
+d) Sering
 
 Skor Penilaian:
-•	0-10: Sehat secara mental
-•	11-20: Sedikit tertekan atau stres, mungkin perlu perhatian lebih
-•	21-30: Cukup tertekan atau stres, disarankan untuk mencari bantuan
-•	31-40: Sangat tertekan atau stres, sangat disarankan untuk mencari bantuan profesional
+0-18: Sehat secara mental
+19-36: Sedikit tertekan atau stres, mungkin perlu perhatian lebih
+37-54: Cukup tertekan atau stres, disarankan untuk mencari bantuan
+55-72: Sangat tertekan atau stres, sangat disarankan untuk mencari bantuan profesional
+73-90: Sangat membutuhkan bantuan profesional segera
