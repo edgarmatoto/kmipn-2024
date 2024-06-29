@@ -252,6 +252,7 @@ Nora Silvester
           <table id="example1" class="table table-bordered table-striped">
               <thead>
                   <tr>
+                      <th>No</th>
                       <th>Soal</th>
                       <th>Opsi A</th>
                       <th>Opsi B</th>
@@ -389,9 +390,15 @@ Nora Silvester
         const tableBody = document.getElementById('data-table-body');
         tableBody.innerHTML = '';
 
-        data.forEach(item => {
+        data.forEach((item, index) => {
             const rowElement = document.createElement('tr');
 
+            // Create element <td> for No.
+            const numberElement = document.createElement('td');
+            numberElement.textContent = index + 1;
+            rowElement.appendChild(numberElement);
+
+            // Create element <td> for question
             const questionElement = document.createElement('td');
             questionElement.textContent = item.question;
             rowElement.appendChild(questionElement);
@@ -399,11 +406,13 @@ Nora Silvester
             for (let i = 0; i < 4; i++) {
                 const options = ['a', 'b', 'c', 'd']
 
+                // Create element <td> for option
                 const optionElement = document.createElement('td');
                 optionElement.textContent = item[`option_${options[i]}`];
                 rowElement.appendChild(optionElement);
             }
 
+            // Create element <td> for edit button
             const actionElement = document.createElement('td');
             actionElement.innerHTML = `
                 <button
