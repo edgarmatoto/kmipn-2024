@@ -116,7 +116,7 @@
       </div>
       <div class="form-group">
         <label for="whatsapp">Nomor WhatsApp</label>
-        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Masukkan nomor WhatsApp Anda" required>
+        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Awali dengan 62, contoh: 6281234567890" required>
       </div>
 
       <div class="survey-container">
@@ -124,34 +124,11 @@
         
         <!-- Survey Pages -->
         <div id="page1" class="survey-page">
-          <!-- Questions 1-10 -->
-          <!-- Add more questions up to 10 here -->
-          <!-- Questions 2 to 10 omitted for brevity -->
+          <!-- Questions 1-20 -->
         </div>
 
         <div id="page2" class="survey-page" style="display:none;">
-          <!-- Questions 11-15 -->
-          <div class="form-group">
-            <label  >11. Sulit tidur atau sering terbangun di malam hari</label>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="option11" name="question11" class="custom-control-input" required>
-              <label class="custom-control-label" for="option11">Tidak sama sekali dalam 2 pekan terakhir</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="option12" name="question11" class="custom-control-input">
-              <label class="custom-control-label" for="option12">Beberapa hari dalam 2 pekan terakhir</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="option13" name="question11" class="custom-control-input">
-              <label class="custom-control-label" for="option13">Lebih dari separuh waktu dalam 2 pekan terakhir</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="option14" name="question11" class="custom-control-input">
-              <label class="custom-control-label" for="option14">Hampir setiap hari dalam 2 pekan terakhir</label>
-            </div>
-          </div>
-          <!-- Add more questions up to 15 here -->
-          <!-- Questions 12 to 15 omitted for brevity -->
+          <!-- Questions 20-40 -->
         </div>
         <!-- Add more pages if needed -->
 
@@ -303,16 +280,19 @@
               .then(response => response.json())
               .then(res => {
                 populateTable(res.data);
-                console.log(res.data)
               })
               .catch(error => console.error('Error fetching data:', error));
     }
 
     function populateTable(data) {
-      const surveyPage = document.getElementById('page1');
-      surveyPage.innerHTML = '';
+        let surveyPage;
 
       data.forEach((item, index) => {
+        if (index < 20) {
+          surveyPage = document.getElementById('page1');
+        } else {
+          surveyPage = document.getElementById('page2');
+        }
         // create question-options container
         const formGroupDiv = document.createElement('div');
         formGroupDiv.classList.add('form-group');
@@ -331,14 +311,15 @@
 
           const optionInput = document.createElement('input');
           optionInput.setAttribute('type', 'radio');
-          optionInput.setAttribute('id', 'option' + index + (i+1));
-          optionInput.setAttribute('name', 'question' + index);
+          optionInput.setAttribute('id', 'option' + (index +1) + (i+1));
+          optionInput.setAttribute('name', 'question' + (index+1));
+          optionInput.setAttribute('value', `${i}`);
           optionInput.classList.add('custom-control-input');
           optionInput.required = true;
           optionDiv.appendChild(optionInput);
 
           const optionLabel = document.createElement('label');
-          optionLabel.setAttribute('for', 'option' + index + (i+1));
+          optionLabel.setAttribute('for', 'option' + (index+1) + (i+1));
           optionLabel.classList.add('custom-control-label');
           optionLabel.textContent = item[`option_` + options[i]];
           optionDiv.appendChild(optionLabel);
@@ -348,6 +329,53 @@
 
         surveyPage.appendChild(formGroupDiv)
       });
+    }
+  </script>
+
+<!--  script to handle submit form-->
+  <script>
+    const form = document.getElementById('surveyForm');
+    form.addEventListener('submit', onSubmit);
+
+    function onSubmit(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      let data = {
+        testScore: 0,
+        name: "",
+        whatsapp: "",
+      };
+      for (const [key, value] of formData.entries()) {
+        if (key.startsWith('question')) {
+          data.testScore += Number(value);
+        } else if (key.startsWith('name')) {
+          data.name = value;
+        } else if (key.startsWith('whatsapp')) {
+          data.whatsapp = value;
+        }
+      }
+
+      // send API
+      fetch('http://localhost:3000/api/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+              .then(response => response.json())
+              .then(result => {
+                console.log('Success:', result);
+
+                // Reload the page
+                window.location.reload();
+                // swal("Success!", "Data added successfully!", "success");
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              });
     }
   </script>
 

@@ -38,14 +38,14 @@ async function askGemini(testScore: string | number): Promise<any> {
 }
 
 /* GET /api/ask */
-router.get('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
-    const { testScore, phoneNumber, userName } = req.body;
+router.post('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
+    const { testScore, whatsapp, name } = req.body;
     const scoreThreshold: number = 37;
 
-    // const answer = await askGemini(testScore);
+    const answer = await askGemini(testScore);
 
     // Send message to user
-    await sendMessageToUser(phoneNumber, 'answer');
+    await sendMessageToUser(whatsapp, answer);
 
     // Send message to consultant if score pass the threshold
     if (testScore >= scoreThreshold) {
@@ -57,8 +57,8 @@ Jangan ragu untuk menghubungi kami. Kami di sini untuk membantu Anda.
 
 Salam,
 Tim Kesehatan Mental`;
-        await sendMessageToUser(phoneNumber, adviceMessage);
-        await sendMessageToConsultant(testScore, userName, phoneNumber);
+        await sendMessageToUser(whatsapp, adviceMessage);
+        await sendMessageToConsultant(testScore, name, whatsapp);
     }
 
     res.json({
