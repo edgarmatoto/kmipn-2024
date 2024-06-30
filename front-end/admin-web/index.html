@@ -1,337 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from adminlte.io/themes/v3/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2024 05:16:32 GMT -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminLTE 3 | Dashboard 2</title>
+<title>SinergiMental</title>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
-
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-
 <link rel="stylesheet" href="dist/css/adminlte.min2167.css?v=3.2.0">
-<script nonce="d5065b0a-7b2f-4953-a0bf-0fcb14606a2f">try{(function(w,d){!function(j,k,l,m){j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5621";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const w of Object.entries(Object.entries(dataLayer).reduce(((x,y)=>({...x[1],...y[1]})),{})))zaraz.set(w[0],w[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const z=j.zaraz.q.shift();j[l].q.push(z)}r.defer=!0;for(const A of[localStorage,sessionStorage])Object.keys(A||{}).filter((C=>C.startsWith("_zaraz_"))).forEach((B=>{try{j[l]["z_"+B.slice(7)]=JSON.parse(A.getItem(B))}catch{j[l]["z_"+B.slice(7)]=A.getItem(B)}}));r.referrerPolicy="origin";r.src="cdn-cgi/zaraz/sd0d9.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
+
+<script nonce="d5065b0a-7b2f-4953-a0bf-0fcb14606a2f">try{(function(w,d){!function(j,k,l,m){j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5621";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const w of Object.entries(Object.entries(dataLayer).reduce(((x,y)=>({...x[1],...y[1]})),{})))zaraz.set(w[0],w[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const z=j.zaraz.q.shift();j[l].q.push(z)}r.defer=!0;for(const A of[localStorage,sessionStorage])Object.keys(A||{}).filter((C=>C.startsWith("_zaraz_"))).forEach((B=>{try{j[l]["z_"+B.slice(7)]=JSON.parse(A.getItem(B))}catch{j[l]["z_"+B.slice(7)]=A.getItem(B)}}));r.referrerPolicy="origin";r.src="cdn-cgi/zaraz/sd0d9.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script>
+</head>
+
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
-<div class="preloader flex-column justify-content-center align-items-center">
-<img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-</div>
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
 
-<nav class="main-header navbar navbar-expand navbar-dark">
-
-<ul class="navbar-nav">
-<li class="nav-item">
-<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-</li>
-<ul class="navbar-nav ml-auto">
-<li class="nav-item">
-<a class="nav-link" data-widget="fullscreen" href="#" role="button">
-<i class="fas fa-expand-arrows-alt"></i>
-</a>
-</li>
-</ul>
-</nav>
-
-
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-    <a href="index3.html" class="brand-link">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-    
-    <div class="sidebar">
-    
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
-    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info">
-    <a href="#" class="d-block">Alexander Pierce</a>
-    </div>
-    </div>
-    <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-    
-    <li class="nav-item menu-open">
-    <ul class="nav nav-treeview">
-    <li class="nav-item">
-    <a href="index.html" class="nav-link">
-    <i class="nav-icon fas fa-tachometer-alt"></i>
-    <p>Dashboard</p>
-    </a>
-    </li>
-    <li class="nav-item">
-        <a href="anggota.html" class="nav-link">
-        <i class="nav-icon fas fa-table"></i>
-        <p>Data Anggota</p>
+  <nav class="main-header navbar navbar-expand navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
         </a>
-        </li>
-        <li class="nav-item">
-            <a href="artikel.html" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
-            <p>Data Artikel</p>
-            </a>
-            </li>
-            <li class="nav-item">
-                <a href="test.html" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Data Test</p>
+      </li>
+    </ul>
+  </nav>
+
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="background-color:white;">
+      <span class="brand-text font-weight-light">SinergiMental</span>
+    </a>
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Fadil</a>
+        </div>
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item menu-open">
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Dashboard</p>
                 </a>
-                </li>
-                <li class="nav-item">
-                    <a href="hasiltest.html" class="nav-link">
-                    <i class="nav-icon fas fa-table"></i>
-                    <p>Data Hasil Test</p>
-                    </a>
-                    </li>
-    </nav>
-    
+              </li>
+              <li class="nav-item">
+                <a href="anggota.html" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Data Anggota</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="artikel.html" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Data Artikel</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="test.html" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Data Test</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="hasiltest.html" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Data Hasil Test</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
-    
-    </aside>
+  </aside>
 
-<div class="content-wrapper">
+  <div class="content-wrapper">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">SinergiMental</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="content-header">
-<div class="container-fluid">
-<div class="row mb-2">
-<div class="col-sm-6">
-<h1 class="m-0">Dashboard v2</h1>
-</div>
-<div class="col-sm-6">
-<ol class="breadcrumb float-sm-right">
-<li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item active">Dashboard</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Welcome to SinergiMental Dashboard</h3>
+              </div>
+              <div class="card-body">
+                <p>Selamat datang di dashboard SinergiMental Anda! Di sini, Anda dapat mengelola dan meninjau tes kesehatan mental, artikel, dan data anggota. Gunakan menu navigasi di sebelah kiri untuk mengakses berbagai bagian. Kami harap Anda memiliki pengalaman yang menyenangkan!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<section class="content">
-<div class="container-fluid">
-
-<div class="row">
-<div class="col-12 col-sm-6 col-md-3">
-<div class="info-box">
-<span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-<div class="info-box-content">
-<span class="info-box-text">CPU Traffic</span>
-<span class="info-box-number">
-10
-<small>%</small>
-</span>
-</div>
-
-</div>
-
-</div>
-
-<div class="col-12 col-sm-6 col-md-3">
-<div class="info-box mb-3">
-<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-<div class="info-box-content">
-<span class="info-box-text">Likes</span>
-<span class="info-box-number">41,410</span>
-</div>
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <strong>Copyright &copy; 2023 <a href="#">SinergiMental</a>.</strong> All rights reserved.
+  </footer>
 
 </div>
-
-</div>
-
-
-<div class="clearfix hidden-md-up"></div>
-<div class="col-12 col-sm-6 col-md-3">
-<div class="info-box mb-3">
-<span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-<div class="info-box-content">
-<span class="info-box-text">Sales</span>
-<span class="info-box-number">760</span>
-</div>
-
-</div>
-
-</div>
-
-<div class="col-12 col-sm-6 col-md-3">
-<div class="info-box mb-3">
-<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-<div class="info-box-content">
-<span class="info-box-text">New Members</span>
-<span class="info-box-number">2,000</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<div class="card">
-<div class="card-header">
-<h5 class="card-title">Monthly Recap Report</h5>
-<div class="card-tools">
-<button type="button" class="btn btn-tool" data-card-widget="collapse">
-<i class="fas fa-minus"></i>
-</button>
-<div class="btn-group">
-<button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-<i class="fas fa-wrench"></i>
-</button>
-<div class="dropdown-menu dropdown-menu-right" role="menu">
-<a href="#" class="dropdown-item">Action</a>
-<a href="#" class="dropdown-item">Another action</a>
-<a href="#" class="dropdown-item">Something else here</a>
-<a class="dropdown-divider"></a>
-<a href="#" class="dropdown-item">Separated link</a>
-</div>
-</div>
-<button type="button" class="btn btn-tool" data-card-widget="remove">
-<i class="fas fa-times"></i>
-</button>
-</div>
-</div>
-
-<div class="card-body">
-<div class="row">
-<div class="col-md-8">
-<p class="text-center">
-<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-</p>
-<div class="chart">
-
-<canvas id="salesChart" height="180" style="height: 180px;"></canvas>
-</div>
-
-</div>
-
-<div class="col-md-4">
-<p class="text-center">
-<strong>Goal Completion</strong>
-</p>
-<div class="progress-group">
-Add Products to Cart
-<span class="float-right"><b>160</b>/200</span>
-<div class="progress progress-sm">
-<div class="progress-bar bg-primary" style="width: 80%"></div>
-</div>
-</div>
-
-<div class="progress-group">
-Complete Purchase
-<span class="float-right"><b>310</b>/400</span>
-<div class="progress progress-sm">
-<div class="progress-bar bg-danger" style="width: 75%"></div>
-</div>
-</div>
-
-<div class="progress-group">
-<span class="progress-text">Visit Premium Page</span>
-<span class="float-right"><b>480</b>/800</span>
-<div class="progress progress-sm">
-<div class="progress-bar bg-success" style="width: 60%"></div>
-</div>
-</div>
-
-<div class="progress-group">
-Send Inquiries
-<span class="float-right"><b>250</b>/500</span>
-<div class="progress progress-sm">
-<div class="progress-bar bg-warning" style="width: 50%"></div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card-footer">
-<div class="row">
-<div class="col-sm-3 col-6">
-<div class="description-block border-right">
-<span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-<h5 class="description-header">$35,210.43</h5>
-<span class="description-text">TOTAL REVENUE</span>
-</div>
-
-</div>
-
-<div class="col-sm-3 col-6">
-<div class="description-block border-right">
-<span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-<h5 class="description-header">$10,390.90</h5>
-<span class="description-text">TOTAL COST</span>
-</div>
-
-</div>
-
-<div class="col-sm-3 col-6">
-<div class="description-block border-right">
-<span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-<h5 class="description-header">$24,813.53</h5>
-<span class="description-text">TOTAL PROFIT</span>
-</div>
-
-</div>
-
-<div class="col-sm-3 col-6">
-<div class="description-block">
-<span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-<h5 class="description-header">1200</h5>
-<span class="description-text">GOAL COMPLETIONS</span>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div class="col-md-8">
-
-</div>
-
-
 
 <script src="plugins/jquery/jquery.min.js"></script>
-
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
 <script src="dist/js/adminlte2167.js?v=3.2.0"></script>
-
-
 <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="plugins/raphael/raphael.min.js"></script>
 <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-
 <script src="plugins/chart.js/Chart.min.js"></script>
-
 <script src="dist/js/demo.js"></script>
-
 <script src="dist/js/pages/dashboard2.js"></script>
-</body>
 
-<!-- Mirrored from adminlte.io/themes/v3/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2024 05:16:33 GMT -->
+</body>
 </html>
