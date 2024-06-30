@@ -42,13 +42,23 @@ router.get('/', async function (req: Request, res: Response, next: NextFunction)
     const { testScore, phoneNumber, userName } = req.body;
     const scoreThreshold: number = 37;
 
-    const answer = await askGemini(testScore);
+    // const answer = await askGemini(testScore);
 
     // Send message to user
-    await sendMessageToUser(phoneNumber, answer);
+    await sendMessageToUser(phoneNumber, 'answer');
 
+    // Send message to consultant if score pass the threshold
     if (testScore >= scoreThreshold) {
-        await sendMessageToConsultant(testScore, userName, phoneNumber)
+        const adviceMessage:string = `Kami sangat menyarankan Anda untuk berbicara dengan salah satu konsultan kesehatan mental untuk mendapatkan bantuan dan dukungan lebih lanjut. Anda dapat menghubungi konsultan kami di:
+
+Nomor Kontak Konsultan: ${process.env.CONSULTANT_PHONE_NUMBER}
+
+Jangan ragu untuk menghubungi kami. Kami di sini untuk membantu Anda.
+
+Salam,
+Tim Kesehatan Mental`;
+        await sendMessageToUser(phoneNumber, adviceMessage);
+        await sendMessageToConsultant(testScore, userName, phoneNumber);
     }
 
     res.json({

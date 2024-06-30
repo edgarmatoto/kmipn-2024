@@ -9,7 +9,7 @@ import indexRouter from './routes/index';
 import askRouter from './routes/ask';
 import testRouter from './routes/test';
 
-var app: Express = express();
+const app: Express = express();
 app.use(cors())
 
 // view engine setup
@@ -22,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// All route
 app.use('/', indexRouter);
 app.use('/api/ask', askRouter);
 app.use('/api/test', testRouter);

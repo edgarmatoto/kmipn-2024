@@ -32,19 +32,17 @@ export async function sendMessageToUser(to: string, message: string): Promise<vo
 
 export async function sendMessageToConsultant(testScore: number, userName: string, phoneNumber: string): Promise<void> {
     const chatId: string = process.env.CONSULTANT_PHONE_NUMBER + "@c.us";
-    const message: string = `
-        Hai Konsultan,
+    const message: string = `Hai Konsultan,
 
-        Terdapat seorang individu yang baru saja melakukan tes kesehatan mental dan mendapatkan skor ${testScore} yang menandakan kurang sehat. Berikut adalah detailnya:
-        
-        Nama: ${userName}
-        Nomor Kontak: ${phoneNumber}
-        
-        Silakan segera hubungi individu tersebut untuk memberikan bantuan dan dukungan yang diperlukan.
-        
-        Terima kasih,
-        Tim Pelayanan Kesehatan Mental
-    `
+Terdapat seorang individu yang baru saja melakukan tes kesehatan mental dan mendapatkan skor ${testScore} yang menandakan kurang sehat. Berikut adalah detailnya:
+
+Nama: ${userName}
+Nomor Kontak: ${phoneNumber}
+
+Silakan segera hubungi individu tersebut untuk memberikan bantuan dan dukungan yang diperlukan.
+
+Terima kasih,
+Tim Pelayanan Kesehatan Mental`;
 
     await client.sendMessage(chatId, message);
 }
