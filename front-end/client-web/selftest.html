@@ -125,8 +125,8 @@
         <!-- Survey Pages -->
         <div id="page1" class="survey-page">
           <!-- Questions 1-10 -->
-          <div class="form-group">
-            <label for="question1">01. Merasa gugup, cemas, atau gelisah</label>
+          <div class="form-group" id="formGroupDiv">
+            <label>01. Merasa gugup, cemas, atau gelisah</label>
             <div class="custom-control custom-radio">
               <input type="radio" id="option1" name="question1" class="custom-control-input" required>
               <label class="custom-control-label" for="option1">Tidak sama sekali dalam 2 pekan terakhir</label>
@@ -147,11 +147,11 @@
           <!-- Add more questions up to 10 here -->
           <!-- Questions 2 to 10 omitted for brevity -->
         </div>
-        
+
         <div id="page2" class="survey-page" style="display:none;">
           <!-- Questions 11-15 -->
           <div class="form-group">
-            <label for="question11">11. Sulit tidur atau sering terbangun di malam hari</label>
+            <label  >11. Sulit tidur atau sering terbangun di malam hari</label>
             <div class="custom-control custom-radio">
               <input type="radio" id="option11" name="question11" class="custom-control-input" required>
               <label class="custom-control-label" for="option11">Tidak sama sekali dalam 2 pekan terakhir</label>
@@ -312,6 +312,60 @@
   </style>
 
   <!-- JS here -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchData();
+    });
+
+    function fetchData() {
+      fetch('http://localhost:3000/api/test')
+              .then(response => response.json())
+              .then(res => {
+                populateTable(res.data);
+                console.log(res.data)
+              })
+              .catch(error => console.error('Error fetching data:', error));
+    }
+
+    function populateTable(data) {
+      const surveyPage = document.getElementById('page1');
+      surveyPage.innerHTML = '';
+
+      data.forEach((item, index) => {
+        const formGroupDiv = document.createElement('div');
+        formGroupDiv.classList.add('form-group');
+
+        const questionLabel = document.createElement('label');
+        questionLabel.textContent = `${index + 1}. ` + item.question;
+        formGroupDiv.appendChild(questionLabel);
+
+        for (let i = 0; i < 4; i++) {
+          const options = ['a', 'b', 'c', 'd']
+
+          const optionDiv = document.createElement('div');
+          optionDiv.classList.add('custom-control', 'custom-radio')
+
+          const optionInput = document.createElement('input');
+          optionInput.setAttribute('type', 'radio');
+          optionInput.setAttribute('id', 'option' + (i+1));
+          optionInput.setAttribute('name', 'question' + (i+1));
+          optionInput.classList.add('custom-control-input');
+          optionInput.required = true;
+          optionDiv.appendChild(optionInput);
+
+          const optionLabel = document.createElement('label');
+          optionLabel.setAttribute('for', 'option' + (i+1));
+          optionLabel.classList.add('custom-control-label');
+          optionLabel.textContent = item[`option_` + options[i]];
+          optionDiv.appendChild(optionLabel);
+
+          formGroupDiv.appendChild(optionDiv);
+        }
+
+        surveyPage.appendChild(formGroupDiv)
+      });
+    }
+  </script>
 
   <!-- All JS Custom Plugins Link Here here -->
   <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>

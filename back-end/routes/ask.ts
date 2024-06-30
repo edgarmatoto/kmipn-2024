@@ -7,7 +7,7 @@ import {
 } from "@google/generative-ai";
 import { GoogleAIFileManager } from "@google/generative-ai/files";
 import {configDotenv} from "dotenv";
-import {sendMessage} from "../whatsapp/whatsapp";
+import {sendMessageToConsultant, sendMessageToUser} from "../whatsapp/whatsapp";
 
 configDotenv()
 
@@ -37,13 +37,19 @@ async function askGemini(testScore: string | number): Promise<any> {
     return response.text()
 }
 
-/* GET users listing. */
+/* GET /api/ask */
 router.get('/', async function (req: Request, res: Response, next: NextFunction): Promise<any> {
-    const { testScore } = req.body
+    const { testScore, phoneNumber, userName } = req.body;
+    const scoreThreshold: number = 37;
 
-    // const answer = await askGemini(testScore);
+    const answer = await askGemini(testScore);
 
-    // await sendMessage("6282191141646", answer);
+    // Send message to user
+    await sendMessageToUser(phoneNumber, answer);
+
+    if (testScore >= scoreThreshold) {
+        await sendMessageToConsultant(testScore, userName, phoneNumber)
+    }
 
     res.json({
         message: "Baik, jawaban anda telah disimpan. Kami akan menghubungi anda lebih lanjut melalui whatsapp yang sudah terdaftar."
